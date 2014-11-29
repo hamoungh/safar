@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+    <Scenarios>
+        <Scenario name="select 0" triggeredByService="Browser">
+            <Call bytesReceived="0" bytesSent="0" callee="WebServer"
+                caller="Browser" invocations="1" type="s">
+                <Demand CPUDemand="41.3207" DiskDemand="0"/>
+            </Call>
+        </Scenario>
+        <Services>
+            <Service canMigrate="false" name="Browser" runsInContainer="Client"/>
+        </Services>
+    </Scenarios>
+    <Topology>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="ClientHost" type="client"/>
+        <Cluster name="ClientCluster">
+            <Container canMigrate="false" name="Client"
+                parallelism="1000" runsOnNode="ClientHost" server="false"/>
+        </Cluster>
+        <Middlware fixedOverheadReceive="0" fixedOverheadSend="0"
+            name="http" overheadPerByteReceived="0" overheadPerByteSent="0"/>
+        <Network connectsNodes="ClientHost WebHost DataHost" latency="0"
+            name="Internet" overheadPerByte="0"/>
+    </Topology>
+    <Workloads kind="HL">
+        <Users>0</Users>
+        <Mix load="100" scenario="select 0"/>
+        <ThinkTimes>
+            <ThinkTime scenario="select 0" time="0"/>
+        </ThinkTimes>
+    </Workloads>
+    <Requirements>
+        <ResponseTime maxResponseTime="100000" minResponseTime="100" scenario="select 0"/>
+    </Requirements>
+</Model>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Results>
+   <Architecture name="0">
+      <Service MaxUtilization="0.0" allocatedToContainer="T_c1" name="S_c1"/>
+      <Service MaxUtilization="0.0" allocatedToContainer="T_c2" name="S_c2"/>
+      <Service MaxUtilization="0.0" allocatedToContainer="T1_2" name="S1_2"/>
+      <Service MaxUtilization="0.0" allocatedToContainer="T1_3" name="S1_3"/>
+      <ExtremeMetrics scenario="class1">
+         <MaxResponseTime value="0.0"/>
+         <MinSatisfaction value="1.0"/>
+      </ExtremeMetrics>
+      <ExtremeMetrics scenario="class2">
+         <MaxResponseTime value="0.0"/>
+         <MinSatisfaction value="1.0"/>
+      </ExtremeMetrics>
+      <Workloads users="350.0">
+         <Scenario name="class1" users="250.0">
+            <ResponseTime>12.3802859909773</ResponseTime>
+            <Throughput>18.68420452063446</Throughput>
+         </Scenario>
+         <Scenario name="class2" users="100.0">
+            <ResponseTime>12.3802859909773</ResponseTime>
+            <Throughput>7.473681808253783</Throughput>
+         </Scenario>
+         <Container Utilization="0.0" multiplicity="1000" name="T_c1">
+            <Scenario responseTime="0.0" scenarioName="class1"/>
+            <Scenario responseTime="0.0" scenarioName="class2"/>
+         </Container>
+         <Container Utilization="0.0" multiplicity="1000" name="T_c2">
+            <Scenario responseTime="0.0" scenarioName="class1"/>
+            <Scenario responseTime="0.0" scenarioName="class2"/>
+         </Container>
+         <Container Utilization="0.0038425045741693558" multiplicity="1000" name="T1_2">
+            <Scenario responseTime="0.14689716535682792" scenarioName="class1"/>
+            <Scenario responseTime="0.14689716535682792" scenarioName="class2"/>
+         </Container>
+         <Container Utilization="0.3198496711781579" multiplicity="1000" name="T1_3">
+            <Scenario responseTime="12.233388825620473" scenarioName="class1"/>
+            <Scenario responseTime="12.233388825620473" scenarioName="class2"/>
+         </Container>
+         <Service Utilization="231.31579547936556" name="S_c1">
+            <Scenario name="class1" responseTime="12.3802859909773"/>
+            <Scenario name="class2" responseTime="0.0"/>
+         </Service>
+         <Service Utilization="92.52631819174621" name="S_c2">
+            <Scenario name="class1" responseTime="0.0"/>
+            <Scenario name="class2" responseTime="12.3802859909773"/>
+         </Service>
+         <Service Utilization="3.8425193534398048" name="S1_2">
+            <Scenario name="class1" responseTime="0.14689716535682792"/>
+            <Scenario name="class2" responseTime="0.14689716535682792"/>
+         </Service>
+         <Service Utilization="319.99959431767195" name="S1_3">
+            <Scenario name="class1" responseTime="12.233388825620473"/>
+            <Scenario name="class2" responseTime="12.233388825620473"/>
+         </Service>
+         <Node name="H_c1">
+            <CPU>
+               <Utilization>0.0</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+         <Node name="H_c2">
+            <CPU>
+               <Utilization>0.0</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+         <Node name="H1">
+            <CPU>
+               <Utilization>0.0</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+         <Node name="H2">
+            <CPU>
+               <Utilization>0.4223636027796709</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+         <Node name="H3">
+            <CPU>
+               <Utilization>0.9996771894802401</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+         <Node name="H4">
+            <CPU>
+               <Utilization>0.0</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+      </Workloads>
+   </Architecture>
+</Results>

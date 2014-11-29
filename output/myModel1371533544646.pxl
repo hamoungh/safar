@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE Model SYSTEM "Opera.dtd">
+	<Model>
+		<Scenarios>
+<Services>
+<Service canMigrate="false" name="Browser" runsInContainer="Client"/><Service canMigrate="false" name="LoadBalancer" runsInContainer="LoadContainer"/><Service canMigrate="false" name="WebServer1" runsInContainer="WebContainer1"/><Service canMigrate="false" name="Database1" runsInContainer="DataContainer1"/><Service canMigrate="false" name="WebServer2" runsInContainer="WebContainer2"/><Service canMigrate="false" name="Database2" runsInContainer="DataContainer2"/></Services>
+<Scenario name="select 1" triggeredByService="Browser">
+<Call bytesReceived="0" bytesSent="0" callee="LoadBalancer" caller="Browser" invocations="1" type="s">
+<Demand CPUDemand="0.115261510918478" DiskDemand="0.0" /></Call>
+<Call bytesReceived="0" bytesSent="0" callee="WebServer1" caller="LoadBalancer" invocations="1" type="s">
+<Demand CPUDemand="41.3207" DiskDemand="0.0" /></Call>
+<Call bytesReceived="0" bytesSent="0" callee="Database1" caller="WebServer1" invocations="1" type="s">
+<Demand CPUDemand="11.7812" DiskDemand="0.0" /></Call>
+</Scenario>
+<Scenario name="select 2" triggeredByService="Browser">
+<Call bytesReceived="0" bytesSent="0" callee="LoadBalancer" caller="Browser" invocations="1" type="s">
+<Demand CPUDemand="0.115261510918478" DiskDemand="0.0" /></Call>
+<Call bytesReceived="0" bytesSent="0" callee="WebServer2" caller="LoadBalancer" invocations="1" type="s">
+<Demand CPUDemand="41.3207" DiskDemand="0.0" /></Call>
+<Call bytesReceived="0" bytesSent="0" callee="Database2" caller="WebServer2" invocations="1" type="s">
+<Demand CPUDemand="11.7812" DiskDemand="0.0" /></Call>
+</Scenario>
+		</Scenarios>
+<Topology>
+<Node CPUParallelism="4"  CPURatio="0.031"  DiskParallelism="1"  DiskRatio="1.0"  name="ClientHost"  type="client"/>
+
+<Node CPUParallelism="4"  CPURatio="0.125"  DiskParallelism="1"  DiskRatio="1.0"  name="LoadBalancerHost"  type="server"/>
+
+<Node CPUParallelism="192"  CPURatio="0.09422916666666668"  DiskParallelism="48"  DiskRatio="1.0"  name="WebHost1"  type="server"/>
+
+<Node CPUParallelism="4"  CPURatio="0.25"  DiskParallelism="1"  DiskRatio="1.0"  name="DatabaseHost1"  type="server"/>
+
+<Node CPUParallelism="128"  CPURatio="0.10121875000000001"  DiskParallelism="32"  DiskRatio="1.0"  name="WebHost2"  type="server"/>
+
+<Node CPUParallelism="1"  CPURatio="0.549"  DiskParallelism="1"  DiskRatio="1.0"  name="DatabaseHost2"  type="server"/>
+
+<Cluster name="ClientCluster">
+<Container canMigrate="false" name="Client" parallelism="1000"  runsOnNode="ClientHost" server="true"/>
+
+</Cluster>
+<Cluster name="LoadCluster">
+<Container canMigrate="false" name="LoadContainer" parallelism="2"  runsOnNode="LoadBalancerHost" server="true"/>
+
+</Cluster>
+<Cluster name="WebCluster1">
+<Container canMigrate="false" name="WebContainer1" parallelism="400"  runsOnNode="WebHost1" server="true"/>
+
+</Cluster>
+<Cluster name="DataCluster1">
+<Container canMigrate="false" name="DataContainer1" parallelism="150"  runsOnNode="DatabaseHost1" server="true"/>
+
+</Cluster>
+<Cluster name="WebCluster2">
+<Container canMigrate="false" name="WebContainer2" parallelism="400"  runsOnNode="WebHost2" server="true"/>
+
+</Cluster>
+<Cluster name="DataCluster2">
+<Container canMigrate="false" name="DataContainer2" parallelism="150"  runsOnNode="DatabaseHost2" server="true"/>
+
+</Cluster>
+<Middlware fixedOverheadReceive="0" fixedOverheadSend="0" name="http" overheadPerByteReceived="0" overheadPerByteSent="0"/>
+<Network connectsNodes="ClientHost LoadBalancerHost WebHost1 DatabaseHost1 WebHost2 DatabaseHost2 " latency="0" name="Internet" overheadPerByte="0"/>
+</Topology><Workloads kind="HL">
+<Users>0</Users>
+<WorkloadMixes openModel="false">
+<Mix load="392" scenario="select 1"/>
+<Mix load="191" scenario="select 2"/>
+</WorkloadMixes>
+<ThinkTimes>
+<ThinkTime scenario="select 1" time="0"/>
+<ThinkTime scenario="select 2" time="0"/>
+</ThinkTimes>
+</Workloads><Requirements>
+<ResponseTime maxResponseTime="1000" minResponseTime="100" scenario="select 1"/>
+<ResponseTime maxResponseTime="1000" minResponseTime="100" scenario="select 2"/>
+
+</Requirements>
+</Model>

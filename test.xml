@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MyTree Num="2">
+    <MyNumber>13</MyNumber>
+    <MyString Num="2">Hello World</MyString>
+    <a>
+        <b>jack</b>
+    </a>
+    <a>
+        <b>john</b>
+    </a>
+    <!--This is a comment-->
+    <k>jack</k>
+    <k>john</k>
+    <o>
+        <b>jack</b>
+    </o>
+    <o>
+        <b/>
+        <c>john</c>
+    </o>
+</MyTree>

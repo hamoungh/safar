@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Model SYSTEM "Opera.dtd">
+<Model>
+    <Scenarios>
+        <Services>
+            <Service canMigrate="false" name="BrowserClient" runsInContainer="ClientContainer"/>
+            <Service canMigrate="false" name="BrowserLB" runsInContainer="LBContainer"/>
+            <Service canMigrate="false" name="BrowseService1" runsInContainer="Container1"/>
+            <Service canMigrate="false" name="BrowseService2" runsInContainer="Container2"/>
+            <Service canMigrate="false" name="BrowseService3" runsInContainer="Container3"/>
+            <Service canMigrate="false" name="BrowseService4" runsInContainer="Container4"/>
+            <Service canMigrate="false" name="BrowseService5" runsInContainer="Container5"/>
+            <Service canMigrate="false" name="BrowseService6" runsInContainer="Container6"/>
+        </Services>
+        <Scenario name="select" triggeredByService="BrowserClient">
+            <Call bytesReceived="0" bytesSent="0" callee="BrowserLB"
+                caller="BrowserClient" invocations="1" type="s">
+                <Demand CPUDemand="0" DiskDemand="0"/>
+            </Call>
+            <Call bytesReceived="0" bytesSent="0"
+                callee="BrowseService1" caller="BrowserLB"
+                invocations="1" type="s">
+                <Demand CPUDemand="0.015" DiskDemand="0"/>
+            </Call>
+            <Call bytesReceived="0" bytesSent="0"
+                callee="BrowseService2" caller="BrowserLB"
+                invocations="1" type="s">
+                <Demand CPUDemand="0.015" DiskDemand="0"/>
+            </Call>
+            <Call bytesReceived="0" bytesSent="0"
+                callee="BrowseService3" caller="BrowserLB"
+                invocations="1" type="s">
+                <Demand CPUDemand="0.015" DiskDemand="0"/>
+            </Call>
+            <Call bytesReceived="0" bytesSent="0"
+                callee="BrowseService4" caller="BrowserLB"
+                invocations="1" type="s">
+                <Demand CPUDemand="0.015" DiskDemand="0"/>
+            </Call>
+            <Call bytesReceived="0" bytesSent="0"
+                callee="BrowseService5" caller="BrowserLB"
+                invocations="1" type="s">
+                <Demand CPUDemand="0.015" DiskDemand="0"/>
+            </Call>
+            <Call bytesReceived="0" bytesSent="0"
+                callee="BrowseService6" caller="BrowserLB"
+                invocations="1" type="s">
+                <Demand CPUDemand="0.015" DiskDemand="0"/>
+            </Call>
+        </Scenario>
+    </Scenarios>
+    <Topology>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="ClientHost" type="client"/>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="LBHost" type="server"/>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="Host1" type="server"/>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="Host2" type="server"/>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="Host3" type="server"/>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="Host4" type="server"/>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="Host5" type="server"/>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="Host6" type="server"/>
+        <Cluster name="ClientCluster">
+            <Container canMigrate="false" name="ClientContainer"
+                parallelism="1000" runsOnNode="ClientHost" server="false"/>
+        </Cluster>
+        <Cluster name="WebCluster">
+            <Container canMigrate="false" name="LBContainer"
+                parallelism="1000" runsOnNode="LBHost" server="true"/>
+            <Container canMigrate="false" name="Container1"
+                parallelism="400" runsOnNode="Host1" server="true"/>
+            <Container canMigrate="false" name="Container2"
+                parallelism="400" runsOnNode="Host2" server="true"/>
+            <Container canMigrate="false" name="Container3"
+                parallelism="400" runsOnNode="Host3" server="true"/>
+            <Container canMigrate="false" name="Container4"
+                parallelism="400" runsOnNode="Host4" server="true"/>
+            <Container canMigrate="false" name="Container5"
+                parallelism="400" runsOnNode="Host5" server="true"/>
+            <Container canMigrate="false" name="Container6"
+                parallelism="400" runsOnNode="Host6" server="true"/>
+        </Cluster>
+        <Middlware fixedOverheadReceive="0" fixedOverheadSend="0"
+            name="http" overheadPerByteReceived="0" overheadPerByteSent="0"/>
+        <Network
+            connectsNodes="ClientHost LBHost Host1 Host2 Host3 Host4 Host5 Host6"
+            latency="0" name="Internet" overheadPerByte="0"/>
+    </Topology>
+    <Workloads kind="HL">
+        <Users>850</Users>
+        <WorkloadMixes openModel="false">
+            <Mix load="850" scenario="select"/>
+        </WorkloadMixes>
+        <ThinkTimes>
+            <ThinkTime scenario="select" time="0.1"/>
+        </ThinkTimes>
+    </Workloads>
+    <Requirements>
+        <ResponseTime maxResponseTime="100000" minResponseTime="100" scenario="select"/>
+    </Requirements>
+</Model>

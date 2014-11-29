@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Results>
+  <Architecture name="0">
+    <Service MaxUtilization="0.0" allocatedToContainer="Client" name="Browser"/>
+    <Service MaxUtilization="0.0" allocatedToContainer="ProxyContainer" name="ProxyServer"/>
+    <Service MaxUtilization="0.0" allocatedToContainer="WebContainer" name="WebServer"/>
+    <Service MaxUtilization="0.0" allocatedToContainer="DataContainer" name="Database"/>
+    <ExtremeMetrics scenario="insert">
+      <MaxResponseTime value="0.0"/>
+      <MinSatisfaction value="0.0"/>
+    </ExtremeMetrics>
+    <ExtremeMetrics scenario="update">
+      <MaxResponseTime value="0.0"/>
+      <MinSatisfaction value="0.0"/>
+    </ExtremeMetrics>
+    <ExtremeMetrics scenario="select 0">
+      <MaxResponseTime value="0.0"/>
+      <MinSatisfaction value="0.0"/>
+    </ExtremeMetrics>
+    <ExtremeMetrics scenario="select 1">
+      <MaxResponseTime value="0.0"/>
+      <MinSatisfaction value="0.0"/>
+    </ExtremeMetrics>
+    <ExtremeMetrics scenario="select 2">
+      <MaxResponseTime value="0.0"/>
+      <MinSatisfaction value="0.0"/>
+    </ExtremeMetrics>
+    <ExtremeMetrics scenario="select 3">
+      <MaxResponseTime value="0.0"/>
+      <MinSatisfaction value="0.0"/>
+    </ExtremeMetrics>
+    <Workloads users="93.2392075">
+      <Scenario name="insert" users="41.62406546">
+        <ResponseTime>42.00553297420147</ResponseTime>
+        <Throughput>0.013680851196122688</Throughput>
+      </Scenario>
+      <Scenario name="update" users="41.61565309">
+        <ResponseTime>41.39041590128862</ResponseTime>
+        <Throughput>0.013680852167604994</Throughput>
+      </Scenario>
+      <Scenario name="select 0" users="4.167608215">
+        <ResponseTime>70.06097621615854</ResponseTime>
+        <Throughput>0.0013572790924138327</Throughput>
+      </Scenario>
+      <Scenario name="select 1" users="2.50608198">
+        <ResponseTime>270.789487089728</ResponseTime>
+        <Throughput>7.660838302114045E-4</Throughput>
+      </Scenario>
+      <Scenario name="select 2" users="2.455554649">
+        <ResponseTime>780.0782235519945</ResponseTime>
+        <Throughput>6.495182757236841E-4</Throughput>
+      </Scenario>
+      <Scenario name="select 3" users="0.870244106">
+        <ResponseTime>1975.5922554477204</ResponseTime>
+        <Throughput>1.7488504258482654E-4</Throughput>
+      </Scenario>
+      <Container Utilization="1.5154734802330716E-5" multiplicity="1000" name="Client">
+        <Scenario responseTime="0.5" scenarioName="insert"/>
+        <Scenario responseTime="0.5" scenarioName="update"/>
+        <Scenario responseTime="0.5" scenarioName="select 0"/>
+        <Scenario responseTime="0.5" scenarioName="select 1"/>
+        <Scenario responseTime="0.5" scenarioName="select 2"/>
+        <Scenario responseTime="0.5" scenarioName="select 3"/>
+      </Container>
+      <Container Utilization="7.284701759983018E-5" multiplicity="10000" name="ProxyContainer">
+        <Scenario responseTime="24.03440874253331" scenarioName="insert"/>
+        <Scenario responseTime="24.034408742532925" scenarioName="update"/>
+        <Scenario responseTime="24.034408742550657" scenarioName="select 0"/>
+        <Scenario responseTime="24.0344087426661" scenarioName="select 1"/>
+        <Scenario responseTime="24.034408742903995" scenarioName="select 2"/>
+        <Scenario responseTime="24.03440874327111" scenarioName="select 3"/>
+      </Container>
+      <Container Utilization="0.003616362689672834" multiplicity="400" name="WebContainer">
+        <Scenario responseTime="16.986137607299423" scenarioName="insert"/>
+        <Scenario responseTime="16.805215531205167" scenarioName="update"/>
+        <Scenario responseTime="45.51029273015608" scenarioName="select 0"/>
+        <Scenario responseTime="242.91078445228715" scenarioName="select 1"/>
+        <Scenario responseTime="732.8637437691712" scenarioName="select 2"/>
+        <Scenario responseTime="1488.9434763932888" scenarioName="select 3"/>
+      </Container>
+      <Container Utilization="1.2061674813239621E-5" multiplicity="10000" name="DataContainer">
+        <Scenario responseTime="0.9849866243687391" scenarioName="insert"/>
+        <Scenario responseTime="0.550791627550526" scenarioName="update"/>
+        <Scenario responseTime="0.5162747434517941" scenarioName="select 0"/>
+        <Scenario responseTime="3.8442938947748218" scenarioName="select 1"/>
+        <Scenario responseTime="23.18007103991936" scenarioName="select 2"/>
+        <Scenario responseTime="462.6143703111604" scenarioName="select 3"/>
+      </Container>
+      <Service Utilization="2.2956439512133815" name="Browser">
+        <Scenario name="insert" responseTime="42.00553297420147"/>
+        <Scenario name="update" responseTime="41.39041590128862"/>
+        <Scenario name="select 0" responseTime="70.06097621615854"/>
+        <Scenario name="select 1" responseTime="270.789487089728"/>
+        <Scenario name="select 2" responseTime="780.0782235519945"/>
+        <Scenario name="select 3" responseTime="1975.5922554477204"/>
+      </Service>
+      <Service Utilization="2.2956439512133815" name="ProxyServer">
+        <Scenario name="insert" responseTime="42.00553297420147"/>
+        <Scenario name="update" responseTime="41.39041590128862"/>
+        <Scenario name="select 0" responseTime="70.06097621615854"/>
+        <Scenario name="select 1" responseTime="270.789487089728"/>
+        <Scenario name="select 2" responseTime="780.0782235519945"/>
+        <Scenario name="select 3" responseTime="1975.5922554477204"/>
+      </Service>
+      <Service Utilization="1.5671737699650692" name="WebServer">
+        <Scenario name="insert" responseTime="17.971124231668163"/>
+        <Scenario name="update" responseTime="17.356007158755695"/>
+        <Scenario name="select 0" responseTime="46.02656747360788"/>
+        <Scenario name="select 1" responseTime="246.75507834706195"/>
+        <Scenario name="select 2" responseTime="756.0438148090905"/>
+        <Scenario name="select 3" responseTime="1951.5578467044493"/>
+      </Service>
+      <Service Utilization="0.12061674820165" name="Database">
+        <Scenario name="insert" responseTime="0.9849866243687391"/>
+        <Scenario name="update" responseTime="0.550791627550526"/>
+        <Scenario name="select 0" responseTime="0.5162747434517941"/>
+        <Scenario name="select 1" responseTime="3.8442938947748218"/>
+        <Scenario name="select 2" responseTime="23.18007103991936"/>
+        <Scenario name="select 3" responseTime="462.6143703111604"/>
+      </Service>
+      <Node name="ClientHost">
+        <CPU>
+          <Utilization>0.0</Utilization>
+        </CPU>
+        <DISK>
+          <Utilization>0.0</Utilization>
+        </DISK>
+      </Node>
+      <Node name="ProxyHost">
+        <CPU>
+          <Utilization>0.7130368704422759</Utilization>
+        </CPU>
+        <DISK>
+          <Utilization>0.0</Utilization>
+        </DISK>
+      </Node>
+      <Node name="WebHost">
+        <CPU>
+          <Utilization>0.6300219176713018</Utilization>
+        </CPU>
+        <DISK>
+          <Utilization>0.0</Utilization>
+        </DISK>
+      </Node>
+      <Node name="DataHost">
+        <CPU>
+          <Utilization>0.10160017564735288</Utilization>
+        </CPU>
+        <DISK>
+          <Utilization>0.0</Utilization>
+        </DISK>
+      </Node>
+    </Workloads>
+  </Architecture>
+</Results>

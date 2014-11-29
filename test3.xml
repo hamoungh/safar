@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+    <Scenarios>
+        <Services>
+            <Service canMigrate="false" name="Browser" runsInContainer="Client"/>
+            <Service canMigrate="false" name="WebServer" runsInContainer="WebContainer"/>
+            <Service canMigrate="false" name="Database" runsInContainer="DataContainer"/>
+        </Services>
+        <Scenario name="select" triggeredByService="Browser">
+            <Call bytesReceived="0" bytesSent="0" callee="WebServer"
+                caller="Browser" invocations="1" type="s">
+                <Demand CPUDemand="41.3207" DiskDemand="0"/>
+            </Call>
+            <Call bytesReceived="0" bytesSent="0" callee="Database"
+                caller="WebServer" invocations="1" type="s">
+                <Demand CPUDemand="11.7812" DiskDemand="0"/>
+            </Call>
+        </Scenario>
+    </Scenarios>
+    <Topology>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="ClientHost" type="client"/>
+        <Node CPUParallelism="2" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="WebHost" type="server"/>
+        <Node CPUParallelism="1" CPURatio="1" DiskParallelism="1"
+            DiskRatio="1" name="DataHost" type="server"/>
+        <Cluster name="DataCluster">
+            <Container canMigrate="false" name="Client"
+                parallelism="1000" runsOnNode="ClientHost" server="false"/>
+        </Cluster>
+        <Cluster>
+            <Container canMigrate="false" name="WebContainer"
+                parallelism="400" runsOnNode="WebHost" server="true"/>
+        </Cluster>
+        <Cluster>
+            <Container canMigrate="false" name="DataContainer"
+                parallelism="150" runsOnNode="DataHost" server="true"/>
+        </Cluster>
+    </Topology>
+    <Workloads kind="HL">
+        <Users>100</Users>
+        <WorkloadMixes>
+            <Mix load="80" scenario="browse"/>
+        </WorkloadMixes>
+        <ThinkTimes>
+            <ThinkTime scenario="browse" time="0.1"/>
+        </ThinkTimes>
+    </Workloads>
+    <WorkloadMixes openModel="false"/>
+</Model>

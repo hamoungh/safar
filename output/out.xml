@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Results>
+   <Architecture name="0">
+      <Service MaxUtilization="0.0" allocatedToContainer="Client" name="Browser"/>
+      <Service MaxUtilization="0.0" allocatedToContainer="LoadContainer" name="LoadBalancer"/>
+      <Service MaxUtilization="0.0" allocatedToContainer="WebContainer1" name="WebServer1"/>
+      <Service MaxUtilization="0.0" allocatedToContainer="DataContainer1" name="Database1"/>
+      <Service MaxUtilization="0.0" allocatedToContainer="WebContainer2" name="WebServer2"/>
+      <Service MaxUtilization="0.0" allocatedToContainer="DataContainer2" name="Database2"/>
+      <ExtremeMetrics scenario="select 1">
+         <MaxResponseTime value="0.0"/>
+         <MinSatisfaction value="0.0"/>
+      </ExtremeMetrics>
+      <ExtremeMetrics scenario="select 2">
+         <MaxResponseTime value="0.0"/>
+         <MinSatisfaction value="0.0"/>
+      </ExtremeMetrics>
+      <Workloads users="583.0">
+         <Scenario name="select 1" users="392.0">
+            <ResponseTime>277.3454965300315</ResponseTime>
+            <Throughput>1.4133995500357928</Throughput>
+         </Scenario>
+         <Scenario name="select 2" users="191.0">
+            <ResponseTime>1176.144446431433</ResponseTime>
+            <Throughput>0.16239501923383434</Throughput>
+         </Scenario>
+         <Container Utilization="0.0" multiplicity="1000" name="Client">
+            <Scenario responseTime="0.0" scenarioName="select 1"/>
+            <Scenario responseTime="0.0" scenarioName="select 2"/>
+         </Container>
+         <Container Utilization="0.011366470467879529" multiplicity="2" name="LoadContainer">
+            <Scenario responseTime="0.014509064516195002" scenarioName="select 1"/>
+            <Scenario responseTime="0.014509304777783663" scenarioName="select 2"/>
+         </Container>
+         <Container Utilization="0.013760000597052726" multiplicity="400" name="WebContainer1">
+            <Scenario responseTime="3.8942928214294428" scenarioName="select 1"/>
+            <Scenario responseTime="0.0" scenarioName="select 2"/>
+         </Container>
+         <Container Utilization="0.9983471616402128" multiplicity="150" name="DataContainer1">
+            <Scenario responseTime="273.4366946440859" scenarioName="select 1"/>
+            <Scenario responseTime="0.0" scenarioName="select 2"/>
+         </Container>
+         <Container Utilization="0.001698078018480772" multiplicity="400" name="WebContainer2">
+            <Scenario responseTime="0.0" scenarioName="select 1"/>
+            <Scenario responseTime="4.182604144922741" scenarioName="select 2"/>
+         </Container>
+         <Container Utilization="0.9826952187493015" multiplicity="150" name="DataContainer2">
+            <Scenario responseTime="0.0" scenarioName="select 1"/>
+            <Scenario responseTime="1171.9473329817324" scenarioName="select 2"/>
+         </Container>
+         <Service Utilization="583.0" name="Browser">
+            <Scenario name="select 1" responseTime="277.3454965300315"/>
+            <Scenario name="select 2" responseTime="1176.144446431433"/>
+         </Service>
+         <Service Utilization="583.0" name="LoadBalancer">
+            <Scenario name="select 1" responseTime="277.3454965300315"/>
+            <Scenario name="select 2" responseTime="1176.144446431433"/>
+         </Service>
+         <Service Utilization="391.97949289474144" name="WebServer1">
+            <Scenario name="select 1" responseTime="277.3309874655153"/>
+            <Scenario name="select 2" responseTime="0.0"/>
+         </Service>
+         <Service Utilization="386.4753011732255" name="Database1">
+            <Scenario name="select 1" responseTime="273.4366946440859"/>
+            <Scenario name="select 2" responseTime="0.0"/>
+         </Service>
+         <Service Utilization="190.99764376117156" name="WebServer2">
+            <Scenario name="select 1" responseTime="0.0"/>
+            <Scenario name="select 2" responseTime="1176.1299371266552"/>
+         </Service>
+         <Service Utilization="190.3184096806093" name="Database2">
+            <Scenario name="select 1" responseTime="0.0"/>
+            <Scenario name="select 2" responseTime="1171.9473329817324"/>
+         </Service>
+         <Node name="ClientHost">
+            <CPU>
+               <Utilization>0.0</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+         <Node name="LoadBalancerHost">
+            <CPU>
+               <Utilization>0.005446853463668675</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+         <Node name="WebHost1">
+            <CPU>
+               <Utilization>0.027531142620903</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+         <Node name="DatabaseHost1">
+            <CPU>
+               <Utilization>0.9996362050574936</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+         <Node name="WebHost2">
+            <CPU>
+               <Utilization>0.0050517736483643655</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+         <Node name="DatabaseHost2">
+            <CPU>
+               <Utilization>0.9999702810446983</Utilization>
+            </CPU>
+            <DISK>
+               <Utilization>0.0</Utilization>
+            </DISK>
+         </Node>
+      </Workloads>
+   </Architecture>
+</Results>
